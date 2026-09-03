@@ -5,6 +5,7 @@ from prompts import (
     COORDINATOR_AGENT_SYSTEM_PROMPT,
     JUDGE_AGENT_SYSTEM_PROMPT,
     OPTIMIZATION_AGENT_SYSTEM_PROMPT,
+    SPECIALIST_AGENT_SYSTEM_PROMPT,
 )
 
 
@@ -16,13 +17,19 @@ def _output_example(prompt: str) -> dict:
 
 
 def test_prompt_output_examples_are_valid_json():
-    assert _output_example(COORDINATOR_AGENT_SYSTEM_PROMPT)["schema_version"] == "analysis_report_v2"
+    assert _output_example(COORDINATOR_AGENT_SYSTEM_PROMPT)["schema_version"] == "routing_decision_v1"
+    assert _output_example(SPECIALIST_AGENT_SYSTEM_PROMPT)["schema_version"] == "specialist_report_v1"
     assert _output_example(JUDGE_AGENT_SYSTEM_PROMPT)["schema_version"] == "judge_decision_v2"
     assert _output_example(OPTIMIZATION_AGENT_SYSTEM_PROMPT)["schema_version"] == "optimization_report_v2"
 
 
 def test_prompts_cover_local_dataset_formats():
-    for prompt in (COORDINATOR_AGENT_SYSTEM_PROMPT, JUDGE_AGENT_SYSTEM_PROMPT):
+    for prompt in (
+        COORDINATOR_AGENT_SYSTEM_PROMPT,
+        SPECIALIST_AGENT_SYSTEM_PROMPT,
+        JUDGE_AGENT_SYSTEM_PROMPT,
+        OPTIMIZATION_AGENT_SYSTEM_PROMPT,
+    ):
         for dataset_name in ("Weibo21", "AMTCele", "LiveFact", "AdvFake"):
             assert dataset_name in prompt
 

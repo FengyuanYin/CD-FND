@@ -1,2 +1,17 @@
 # Local project audit; contains internal planning and must not be uploaded.
 LOCAL_PROJECT_AUDIT.md
+
+# Secrets: never commit API keys or local environment files.
+.env
+*.key
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Experiment outputs and generated skill versions (research artifacts)
+outputs/
+skill_store/
+experiments/

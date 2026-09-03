@@ -1,0 +1,8 @@
+# CD-FND 多智能体假新闻检测系统 - Python 依赖
+# 科研项目:请固定版本以保证可复现性,并在论文中记录实际安装版本。
+
+autogen-agentchat>=0.7,<0.8
+autogen-core>=0.7,<0.8
+PyYAML>=6.0
+tqdm>=4.60
+openai>=1.0

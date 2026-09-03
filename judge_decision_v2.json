@@ -1,0 +1,108 @@
+{
+  "schema_version": "judge_decision_v2",
+  "item_id": null,
+  "dataset_format": "weibo21",
+  "task_type": "single_item_classification",
+  "prediction": {
+    "canonical_label": "AMBIGUOUS",
+    "dataset_label": null,
+    "status": "LABEL_SCHEMA_REQUIRED",
+    "confidence": 0.25
+  },
+  "claim_verdicts": [
+    {
+      "claim_id": "C1",
+      "importance": "CENTRAL",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "The only assertive factual tip is self-reported in the post; no live Baidu search results or independent/temporally matched evidence support or refute it."
+    },
+    {
+      "claim_id": "C2",
+      "importance": "SUPPORTING",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "The Baidu Wenku 'wap' workaround is disclosed inside a rhetorical refusal; no live URL testing or external evidence verifies it."
+    },
+    {
+      "claim_id": "C3",
+      "importance": "SUPPORTING",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "The Youku 'xia' download workaround is unverified and platform-dependent; no retrieved evidence or test result is available."
+    },
+    {
+      "claim_id": "C4",
+      "importance": "SUPPORTING",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "The Tudou '?tid=-1' ad-skip claim depends on time-sensitive platform behavior; no evidence confirms or refutes the 45-second claim."
+    },
+    {
+      "claim_id": "C5",
+      "importance": "CENTRAL",
+      "assessment": "NOT_CHECKABLE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "Self-referential ironic statement referencing Lei Feng as a cultural icon; it frames the genre and is not factually testable."
+    },
+    {
+      "claim_id": "C6",
+      "importance": "SUPPORTING",
+      "assessment": "NOT_CHECKABLE",
+      "evidence_ids": [
+        "E1"
+      ],
+      "reason": "The rhetorical 'would I tell you...' structure is an interpretive/apophatic device rather than a testable factual claim."
+    }
+  ],
+  "pair_assessment": {
+    "applicable": false,
+    "less_supported_candidate": "neither",
+    "material_changes": [],
+    "reason": "Single-item Weibo classification task; no adversarial paired candidates to compare."
+  },
+  "evidence_summary": {
+    "supporting_ids": [],
+    "refuting_ids": [],
+    "unusable_ids": [
+      "E1"
+    ],
+    "independence_limitations": [
+      "E1 is the primary post itself; there is no independent corroboration or refutation."
+    ],
+    "temporal_limitations": [
+      "No publication timestamp is available, and all four workarounds concern time-sensitive platform behavior."
+    ]
+  },
+  "rationale": "The post is a satirical 'I am not Lei Feng' refusal that discloses four unverified web workarounds. Only the source text E1 is available; it establishes that the claims were made but does not establish their truth. C1-C4 therefore remain insufficiently evidenced, and C5-C6 are non-checkable rhetorical framing. A canonical AMBIGUOUS label is appropriate, but a Weibo21 numeric dataset label cannot be emitted without an explicit label_schema mapping.",
+  "uncertainty": {
+    "level": "HIGH",
+    "causes": [
+      "No independent or retrieved evidence for any technical workaround",
+      "No publication date or time-matched verification",
+      "No label_schema mapping for Weibo21 numeric labels"
+    ],
+    "missing_information": [
+      "Live testing or reliable sources for Baidu, Baidu Wenku, Youku, and Tudou claims",
+      "Post publication date",
+      "Explicit allowed_labels and REAL/FAKE/AMBIGUOUS mapping"
+    ]
+  },
+  "leakage_checks": {
+    "used_reference_label": false,
+    "used_dataset_identity_as_evidence": false,
+    "used_style_as_verdict": false,
+    "used_field_prefix_as_verdict": false,
+    "treated_missing_evidence_as_refutation": false
+  }
+}
