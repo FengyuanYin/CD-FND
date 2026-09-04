@@ -4,7 +4,7 @@ LOCAL_PROJECT_AUDIT.md
 # Secrets: never commit API keys or local environment files.
 .env
 *.key
-
+*.tex
 # Python artifacts
 __pycache__/
 *.py[cod]
